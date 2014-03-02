@@ -32,10 +32,14 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.LinearLayout.LayoutParams;
 
 import com.rnv.media.util.Constants;
+import com.rnv.media.util.Trace;
 import com.rnv.media.util.Utils;
 import com.rnv.mediaapp.JSONparser;
 import com.rnv.mediaapp.R;
@@ -48,17 +52,21 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 	private EditText titleedt,descriptionedt,locationedt,dateedt;
 	private ImageButton dobimg;
 
-	private EditText imagetext1,imagetext2;
+	private EditText imagetext1;
 	private String image1_base64,image2_base64,titlevalue,descriptionvalue,locationvalue,datevalue;
-	private Button post,browse1,browse2;
+	private Button post;
+	private ImageButton browse1;
 	private JSONparser jsonParser = new JSONparser();
 	private RelativeLayout rel; 
-	private String filename;
 	private Bitmap bitmap;
 	private static final int PICK_IMAGE = 1; 
+	private int addmorecount=0;
 	private boolean browseflag1,browseflag2=false;
 	int MyYear,MyMonth,MyDay,MyHour,MyMinute;
- 
+	private LinearLayout addmorelayout=null;
+	private String filename;
+	private TextView textOut;
+	private ArrayList<String> base64forimages=new ArrayList<String>();
 	@Override  
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.fragment_admin_postgallery, container, false);
@@ -74,25 +82,61 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 		locationedt=(EditText) mContext.findViewById(R.id.Editlocation);
 		dateedt=(EditText) mContext.findViewById(R.id.Editdate);
 		dobimg=(ImageButton) mContext.findViewById(R.id.dobimage);
-		
+		addmorelayout=(LinearLayout) mContext.findViewById(R.id.addmorelinear);
 		post=(Button) mContext.findViewById(R.id.submit);
-		browse1=(Button) mContext.findViewById(R.id.browseimg1);
-		browse2=(Button) mContext.findViewById(R.id.browseimg2);
+		browse1=(ImageButton) mContext.findViewById(R.id.browseimg1);
+		//browse2=(Button) mContext.findViewById(R.id.browseimg2);
+		//	imagetext2=(EditText) mContext.findViewById(R.id.Textimg2);
 		imagetext1=(EditText) mContext.findViewById(R.id.Textimg1);
-		imagetext2=(EditText) mContext.findViewById(R.id.Textimg2);
 		rel=(RelativeLayout) mContext.findViewById(R.id.rel);
+		//addmore=(ImageButton) mContext.findViewById(R.id.addmore);
 
-		browse1.setOnClickListener(this);
+
+
+
 		post.setOnClickListener(this);
 		rel.setOnClickListener(this);
-		browse2.setOnClickListener(this);
+		//browse2.setOnClickListener(this);
 		dobimg.setOnClickListener(this);
 		dateedt.setOnClickListener(this);
+		//addmore.setOnClickListener(this);
+
 
 		Calendar c=Calendar.getInstance();
 		MyYear=c.get(Calendar.YEAR);
 		MyMonth=c.get(Calendar.MONTH);
 		MyDay=c.get(Calendar.DAY_OF_MONTH);
+
+		browse1.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				browseflag1=true; 
+				browseflag2=false;
+				if(addmorecount==0)
+				{
+					selectImageFromGallery();
+				}
+
+				LayoutInflater layoutInflater =	(LayoutInflater)mContext.getSystemService(mContext.LAYOUT_INFLATER_SERVICE);
+				final View addView = layoutInflater.inflate(R.layout.galleryrow, null);
+				textOut = (TextView)addView.findViewById(R.id.text);
+				textOut.setHint(getString(R.string.image));
+				Button buttonadd = (Button)addView.findViewById(R.id.browse);
+				buttonadd.setOnClickListener(new OnClickListener(){
+
+					@Override
+					public void onClick(View v) {
+						browseflag1=false;
+						selectImageFromGallery();
+
+					}});
+				addmorelayout.addView(addView);
+				addmorecount=addmorecount+1;
+
+			}
+		});
 	} 
 
 	/**When dialog prompt enables click positive button events
@@ -130,16 +174,6 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			imm.hideSoftInputFromWindow(rel.getWindowToken(), 0);
 			break; 
 
-		case R.id.browseimg1:
-			browseflag1=true;
-			browseflag2=false;
-			selectImageFromGallery();
-			break;
-		case R.id.browseimg2:
-			browseflag1=false;
-			browseflag2=true;
-			selectImageFromGallery();
-			break;
 		case R.id.submit:
 			if (validation()){
 				titlevalue=titleedt.getText().toString();
@@ -161,6 +195,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			DatePickerDialog dpd1=new DatePickerDialog(mContext,myDateListener,MyYear,MyMonth,MyDay);
 			dpd1.show();
 			break;
+
 		default: 
 			break;
 		}
@@ -185,15 +220,19 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
 			String picturePath = cursor.getString(columnIndex);
 			filename = selectedImage.getLastPathSegment().toString();
-			if(browseflag1){
+			if(browseflag1)
+			{
 				imagetext1.setText(filename+".jpg");
 			}
-			else if(browseflag2)
-			{
-				imagetext2.setText(filename+".jpg");
+			else{
+				textOut.setText(filename+".jpg");
 			}
 			cursor.close();
-			decodeFile(picturePath);
+			try{
+				decodeFile(picturePath);}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
@@ -228,9 +267,16 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			paramdetails.add(new BasicNameValuePair("Ides",descriptionval));
 			paramdetails.add(new BasicNameValuePair("Ilocation",locationval));
 			paramdetails.add(new BasicNameValuePair("Idate",dateval));
-			paramdetails.add(new BasicNameValuePair("Iimage1",image1_base64));
-			paramdetails.add(new BasicNameValuePair("Iimage2",image2_base64));
-		
+			if(base64forimages.size()>0){
+			paramdetails.add(new BasicNameValuePair("count",""+base64forimages.size()));
+			for(int j=0;j<base64forimages.size();j++)
+			{
+			paramdetails.add(new BasicNameValuePair("Iimage"+base64forimages.size(),base64forimages.get(j)));
+
+			}}
+			//paramdetails.add(new BasicNameValuePair("Iimage1",image1_base64));
+			//paramdetails.add(new BasicNameValuePair("Iimage2",image2_base64));
+
 			JSONObject json=jsonParser.makeHttpRequest(Constants.ADMIN_GALLERY_POST_DETAILS,"POST",paramdetails);
 			return json;
 		}
@@ -248,7 +294,6 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 				titleedt.setText("");
 				descriptionedt.setText("");
 				imagetext1.setText("");
-				imagetext2.setText("");
 				locationedt.setText("");
 				dateedt.setText("");
 
@@ -275,7 +320,6 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			height_tmp /= 2;
 			scale *= 2;
 		}
-		// Decode with inSampleSize
 		BitmapFactory.Options o2 = new BitmapFactory.Options();
 		o2.inSampleSize = scale;
 		bitmap = BitmapFactory.decodeFile(filePath, o2);
@@ -284,25 +328,22 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
 		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream); //compress to which format you want.
 		byte [] byte_arr = stream.toByteArray();
-		if(browseflag1)
+		image1_base64 = Base64.encodeToString(byte_arr,Base64.DEFAULT);
+		base64forimages.add(image1_base64);
+		Trace.d("Length iss", ""+base64forimages.size());
+		for(int i=0;i<base64forimages.size();i++)
 		{
-			image1_base64 = Base64.encodeToString(byte_arr,Base64.DEFAULT);
+			Trace.d("Length iss", base64forimages.get(i));
 		}
-		else if(browseflag2)
-		{
-			image2_base64 = Base64.encodeToString(byte_arr,Base64.DEFAULT);
-		}
-		//Toast.makeText(mContext,filename, Toast.LENGTH_LONG).show();
 	}
 
 	private boolean validation() {
 		String titleval = titleedt.getText().toString();  
 		String desval = descriptionedt.getText().toString();
 		String imageval1=imagetext1.getText().toString();
-		String imageval2=imagetext2.getText().toString();
 		String locaval=locationedt.getText().toString();
 		String dateval=dateedt.getText().toString();
-		
+
 		boolean validCreds = false;
 		if (titleval.trim().equalsIgnoreCase("")) {
 			Toast.makeText(mContext, R.string.titlevalidator,Toast.LENGTH_LONG).show();
@@ -319,9 +360,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 		else if (imageval1.trim().equalsIgnoreCase("")) {
 			Toast.makeText(mContext, R.string.imagevalidator,Toast.LENGTH_LONG).show();
 		} 
-		else if (imageval2.trim().equalsIgnoreCase("")) {
-			Toast.makeText(mContext, R.string.imagevalidator,Toast.LENGTH_LONG).show();
-		}
+
 		else {
 			validCreds = true;
 		}
@@ -344,6 +383,6 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			String str=sb.toString();
 			dateedt.setText(str);				
 		}}; 	 
-	
+
 
 }

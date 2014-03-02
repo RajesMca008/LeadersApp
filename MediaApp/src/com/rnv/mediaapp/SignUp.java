@@ -81,8 +81,6 @@ public class SignUp extends BaseActionBarActivity implements OnClickListener{
 		break;
 	default:
 		break;
-		
-		
 	}
 	}
 	

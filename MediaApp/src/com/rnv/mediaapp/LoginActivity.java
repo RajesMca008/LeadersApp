@@ -1,5 +1,7 @@
 package com.rnv.mediaapp;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +15,14 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.Signature;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Trace;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -316,15 +324,29 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			imm1.hideSoftInputFromWindow(signin_relative_layout.getWindowToken(), 0);
 			break; 
 		case R.id.signupBtn:
+/*
+			try {
+		        PackageInfo info = getPackageManager().getPackageInfo(
+		                "com.rnv.mediaapp", 
+		                PackageManager.GET_SIGNATURES);
+		        for (Signature signature : info.signatures) {
+		            MessageDigest md = MessageDigest.getInstance("SHA");
+		            md.update(signature.toByteArray());
+		            Log.d("Your Tag", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+		    		com.rnv.media.util.Trace.d("KEY", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+   Toast.makeText(mContext, "KEY"+Base64.encodeToString(md.digest(), Base64.DEFAULT), Toast.LENGTH_LONG).show();
+		        }
+		    } catch (NameNotFoundException e) {
 
+		    } catch (NoSuchAlgorithmException e) {
+
+		    }*/
 			Intent signupin=new Intent(mContext, SignUp.class);
 			signupin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(signupin);
-			/*Intent signupin=new Intent(mContext, RegisterActivity.class);
-			signupin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(signupin);*/
+			
 			break;
-		default: 
+		default:  
 			break;
 		}		
 	}

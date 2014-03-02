@@ -18,6 +18,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -166,6 +167,15 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 					commenttxt.setPadding(30, 10, 10, 5);
 					commenttxt.setText(commentsbean.get(i).getComment());
 					holder.commentslayout.addView(commenttxt);
+					
+					TextView datetxt=new TextView(mContext);
+					datetxt.setTextSize(12);
+					datetxt.setLayoutParams(lp);
+					datetxt.setPadding(30, 10, 10, 5);
+					datetxt.setGravity(Gravity.RIGHT);
+					datetxt.setText(commentsbean.get(i).getDate());
+					holder.commentslayout.addView(datetxt);
+					
 
 					View border=new View(mContext);
 					border.setLayoutParams(new LayoutParams( LayoutParams.WRAP_CONTENT, 1));
@@ -176,16 +186,7 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 			}
 			holder.title.setText(newsitemsval.get(position).getTitle());
 			holder.description.setText(newsitemsval.get(position).getDescription());
-			//holder.img.setVisibility(galleryimagesval.get(position).getUrls());
 			imageLoader.DisplayImage(newsitemsval.get(position).getUrls(), activity, holder.img);
-			/*holder.footer.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					InputMethodManager im = (InputMethodManager)activity.getSystemService(INPUT_METHOD_SERVICE);
-					im.hideSoftInputFromWindow(holder.footer.getWindowToken(),0);
-				}
-			});*/
 			holder.header.setOnClickListener(new OnClickListener() {
 
 				@Override
@@ -353,15 +354,17 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 						String id = stmainobj.getString("id");
 						String name = stmainobj.getString("name");
 						String comment = stmainobj.getString("comment");
+						String dateval=stmainobj.getString("date");
+						
 						commentsobj.setId(id);
 						commentsobj.setUserName(name);
 						commentsobj.setcomment(comment);
+						commentsobj.setDate(dateval);
 						commentsbean.add(commentsobj);
 					}
 				}
 				vp.getAdapter().notifyDataSetChanged();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}}
 	}}

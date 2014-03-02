@@ -9,6 +9,8 @@ public class Newsbean implements Serializable{
 	private String description;
 	private String location;
 	private String url;
+	private String date;
+
 
 	public  Newsbean(){
 	
@@ -43,5 +45,12 @@ public class Newsbean implements Serializable{
 	public String getUrls()
 	{
 		return url;
+	}
+	public void setDate(String date) {
+		this.date=date;
+	}
+	public String getDate()
+	{
+		return date;
 	}
 }

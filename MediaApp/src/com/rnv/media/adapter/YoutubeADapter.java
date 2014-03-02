@@ -17,7 +17,7 @@ public class YoutubeADapter extends BaseAdapter{
 	public VideosLoader downloader;
 	public YoutubeADapter(Context c) {
 		mContext = c;  
-	} 
+	}  
 	
 	public YoutubeADapter(VideoActivity mContext2,ArrayList<GalleryBean> galbean) {
 		

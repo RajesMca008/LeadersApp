@@ -220,7 +220,7 @@ public class PostSpeechesFragment extends Fragment implements OnClickListener {
 		bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream); //compress to which format you want.
 		byte [] byte_arr = stream.toByteArray();
 		image_str = Base64.encodeToString(byte_arr,Base64.DEFAULT);
-		imagetext.setText(filename);
+		imagetext.setText(filename+".jpg");
 
 	}
 	private class Postdata extends AsyncTask<String, String, JSONObject> {
@@ -230,7 +230,7 @@ public class PostSpeechesFragment extends Fragment implements OnClickListener {
 		public Postdata(PostSpeechesActivity mContext, String titlevalue,
 				String descriptionvalue)
 		{   
-			act=mContext;
+			act=mContext; 
 			titleval=titlevalue;
 			descriptionval=descriptionvalue;
 		}

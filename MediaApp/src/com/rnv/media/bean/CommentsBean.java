@@ -7,6 +7,7 @@ public class CommentsBean implements Serializable{
 	private String id;
 	private String username;
 	private String comment;
+	private String date;
 	
 	public String getId()
 	{
@@ -32,8 +33,13 @@ public class CommentsBean implements Serializable{
 	{
 		this.comment=comment;
 	}
-	
-	
+	public void setDate(String date) {
+		this.date=date;
+	}
+	public String getDate()
+	{
+		return date;
+	}
 	
 	
 	

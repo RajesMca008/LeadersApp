@@ -121,6 +121,7 @@ public class DashBoardFragment extends Fragment implements OnItemClickListener{
 					String title = stmainobj.getString("title");
 					String description = stmainobj.getString("des");
 					String location=stmainobj.getString("location");
+					
 					newsobj.setId(""+id);
 					newsobj.setDescription(description);
 					newsobj.setLocation(location);
