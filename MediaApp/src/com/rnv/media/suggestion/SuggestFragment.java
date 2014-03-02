@@ -73,7 +73,11 @@ public class SuggestFragment extends Fragment implements OnClickListener{
 		rel.setOnClickListener(this);
 		submit.setOnClickListener(this);
 		upload.setOnClickListener(this);
+		
 	} 
+	/** Check the validation when post the suggestion to server
+	 * @return
+	 */
 	private boolean validatecredentials() {
 		String nameval = name.getText().toString();
 		String emailval = email.getText().toString();
