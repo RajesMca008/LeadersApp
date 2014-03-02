@@ -27,14 +27,10 @@ import android.util.Log;
 
 import com.google.android.gcm.GCMRegistrar;
 import com.rnv.media.gcm.Config;
-import com.rnv.media.urbanairship.IntentReceiver;
 import com.rnv.media.util.Constants;
 import com.rnv.media.util.SharedPreferenceUtil;
 import com.rnv.media.util.Trace;
 import com.rnv.media.util.Utils;
-import com.urbanairship.Logger;
-import com.urbanairship.UAirship;
-import com.urbanairship.push.PushManager;
 /**
  * This is a sub-class of {@link Application} and is responsible for
  * initializing/creating the re-usable components in entire application like
@@ -57,34 +53,6 @@ public class MediaApplication extends android.app.Application {
 	public void onCreate() {
 		super.onCreate(); 
 		mInstance = this;  
-		// Configure your application
-				//
-				// This can be done in code as illustrated here,
-				// or you can add these settings to a properties file
-				// called airshipconfig.properties
-				// and place it in your "assets" folder
-				UAirship.takeOff(this);
-
-				//Log level to display logs as priority
-				Logger.logLevel = Constants.LOG_LEVEL;
-
-				// Optionally, customize your config at runtime:
-				//AirshipConfigOptions options = AirshipConfigOptions.loadDefaultOptions(this);
-				// Optionally, customize your config at runtime:
-				// options.inProduction = false;
-				// options.developmentAppKey = "Your Development App Key";
-				// options.developmentAppSecret "Your Development App Secret";
-				// UAirship.takeOff(this, options);
-
-
-				if(Constants.PUSH_ENABLED)
-					PushManager.enablePush();		//Enabling the push, because by default push is disabled.
-				else
-					PushManager.disablePush();
-
-				//setup of BroadcastReceiver to receive intents
-				PushManager.shared().setIntentReceiver(IntentReceiver.class);
-
 	}
 
 	public static MediaApplication getInstance() {
