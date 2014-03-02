@@ -11,7 +11,7 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 /**
- * Constants class used for entire static varibles, 
+ * Constants class used for entire static variables, 
  * constant values can access over here. 
  * 
  */ 
@@ -93,9 +93,6 @@ public class Constants
 	public static String SP_LOGIN_UNCHECK_USERNAME="usernamevalue";
 	public static String SP_LOGIN_UNCHECK_PASSWORD="passwordvalue";
 	
-
-	
-	
 	//Orientation Constants
 	public static final int ORIENTATION_PORTRAIT					= 0;
 	public static final int ORIENTATION_LANDSCAPE					= 1;
@@ -117,11 +114,7 @@ public class Constants
 	public static final String ACTION_LOGOUT_BROADCAST      		= "com.example.media.LOGOUT"; 
 
 
-
 	//For displaying videos
-	
-	
-	
 	public  Bitmap loadImage(String URL, BitmapFactory.Options options)
 	{       
 		Bitmap bitmap = null;
@@ -165,19 +158,10 @@ public class Constants
 		return inputStream;
 	}
 
-
 //Push
 	public static  String DEVICETOKEN = "";
 	public static boolean C2DM_ACTIVITY_FOCUS_CHECK=false; 
 	public static final String EXTRA_ALERT_DATA="alertData";
 	public static final int LOG_LEVEL = Log.VERBOSE;
 	public static boolean PUSH_ENABLED = true;
-	
-		
-
-
-
-
-
-
 }
