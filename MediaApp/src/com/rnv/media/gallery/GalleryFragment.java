@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.rnv.media.bean.GalleryBean;
 import com.rnv.media.dashboard.ImageLoader;
@@ -31,6 +29,7 @@ import com.rnv.mediaapp.R;
 
 public class GalleryFragment extends Fragment implements android.widget.AdapterView.OnItemClickListener{
 
+	@SuppressWarnings("unused")
 	private static final String TAG = "GalleryFragment";
 	private View mView;
 	private GalleryActivity mContext;  
@@ -116,14 +115,11 @@ public class GalleryFragment extends Fragment implements android.widget.AdapterV
 					String title = stmainobj.getString("title");
 					String description = stmainobj.getString("des");
 					String subidval=stmainobj.getString("subid");
-
 					galobj.setId(""+galleryidval);
 					galobj.settitle(title);
 					galobj.setdescription(description);
 					galobj.setUrl1("http://www.madhavaramkantharao.com/siteadmin/media_images/images/"+galleryidval+"/"+subidval+".jpg");
 					galbean.add(galobj);
-
-
 				} 
 				imagegal.setAdapter(new CustomGalleryAdapter(mContext,galbean));
 			}catch (JSONException e) {
@@ -137,6 +133,7 @@ public class GalleryFragment extends Fragment implements android.widget.AdapterV
 		public ImageLoader imageLoader; 
 		private ArrayList<GalleryBean> gallery_list=new ArrayList<GalleryBean>();
 
+		@SuppressWarnings("static-access")
 		public CustomGalleryAdapter(GalleryActivity mContext,
 				ArrayList<GalleryBean> galbean) {
 			activity=mContext;
@@ -167,7 +164,6 @@ public class GalleryFragment extends Fragment implements android.widget.AdapterV
 			View v=convertView;
 			if(v==null)
 		 	v=li.inflate(R.layout.album, null);
-			
 			ImageView im=(ImageView) v.findViewById(R.id.galleryimage);
 			TextView text=(TextView) v.findViewById(R.id.gallerytext);
 			text.setText(gallery_list.get(position).getTitle());
@@ -176,7 +172,6 @@ public class GalleryFragment extends Fragment implements android.widget.AdapterV
 		}}
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-
 		Intent in=new Intent(mContext, Gallery_AlbumActivity.class);
 		in.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		Bundle b=new Bundle(); 
@@ -185,5 +180,4 @@ public class GalleryFragment extends Fragment implements android.widget.AdapterV
 		b.putString("Galleryid", galbean.get(arg2).getId());
 		in.putExtras(b);
 		startActivity(in); 
-
 	}}

@@ -126,7 +126,7 @@ public class ViewComments_SingleActivity extends BaseActionBarActivity{
 			imageLoader = new ImageLoader(activity);
 			inflater=(LayoutInflater)activity.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
 		}
-		public int getCount() {
+		public int getCount() { 
 			return galleryimagesval.size();
 		}
 		public Object instantiateItem(View collection, int position) {

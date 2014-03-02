@@ -16,7 +16,7 @@ public class PostSpeechesActivity extends BaseNavDrawerActivity{
 	PostSpeechesActivity mContext;
 	PostSpeechesFragment mFragment;
 	private SearchView mSearchView;
-
+ 
 	private static ArrayList<String> mResults;
 	@Override  
 	public void onCreate(Bundle savedInstanceState) {

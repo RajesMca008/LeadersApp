@@ -29,10 +29,9 @@
                 android:id="@+id/signinBtn"
                 android:layout_width="92dp"
                 android:layout_height="35dp"
-                android:layout_below="@+id/editPwd"
                 android:layout_margin="5dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/signin_btn_bg"
+                android:background="@drawable/action_item_btn"
                 android:text="@string/btn_login"
                 android:textColor="#FFFFFF" />
 
@@ -40,11 +39,9 @@
                 android:id="@+id/signupBtn"
                 android:layout_width="92dp"
                 android:layout_height="35dp"
-                android:layout_below="@+id/editPwd"
                 android:layout_margin="5dp"
                 android:layout_marginTop="20dp"
-                android:layout_toRightOf="@+id/signinBtn"
-                android:background="@drawable/signin_btn_bg"
+                android:background="@drawable/action_item_btn"
                 android:text="@string/btn_signup"
                 android:textColor="#FFFFFF" />
         </LinearLayout>

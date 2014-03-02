@@ -60,7 +60,7 @@ public class PostNewsFragment extends Fragment implements OnClickListener{
 	private RelativeLayout rel;  
 	private String filename; 
 	private int editlength=400;
- 
+
 	@Override   
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.fragment_admin_postnews, container, false);
@@ -75,53 +75,49 @@ public class PostNewsFragment extends Fragment implements OnClickListener{
 		descriptionedt=(EditText) mContext.findViewById(R.id.Editdescription);
 		locationedt=(EditText) mContext.findViewById(R.id.Editlocation);
 		dateedt=(EditText) mContext.findViewById(R.id.Editdate);
-		imagefiletext=(EditText) mContext.findViewById(R.id.Textimg);
 		dobimg=(ImageButton) mContext.findViewById(R.id.dobimage);
+
+		imagefiletext=(EditText) mContext.findViewById(R.id.Textimg);
 		rel=(RelativeLayout) mContext.findViewById(R.id.rel);
 		txtwatcher=(TextView) mContext.findViewById(R.id.textwatch);
-		//choosenimg=(ImageView) mContext.findViewById(R.id.choosenimage);
-		//galimg=(ImageView) mContext.findViewById(R.id.galimage);
 		post=(Button) mContext.findViewById(R.id.submit);
 		browse=(Button) mContext.findViewById(R.id.browse);
- 
 
-		  
 		//Description text text watcher
-	    TextWatcher textWatcher = new TextWatcher() {
-	        @Override
-	        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-	        } 
-	        @Override
-	        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-	        }
-	        @Override
-	        public void afterTextChanged(Editable editable) {
-	           String answerString = descriptionedt.getText().toString();
-	           int aclen=editlength-answerString.length();
-	           txtwatcher.setText(""+aclen +"  Characters Left");
-	           if(aclen==0)
-	           {
-		          Toast.makeText(mContext,R.string.titleeditvalidator,Toast.LENGTH_LONG).show();
-	           }
-	        }
-	    };
-	     
-	    descriptionedt.addTextChangedListener(textWatcher);
-	    
-	    
-	    
+		TextWatcher textWatcher = new TextWatcher() {
+			@Override
+			public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+			} 
+			@Override
+			public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+			}
+			@Override
+			public void afterTextChanged(Editable editable) {
+				String answerString = descriptionedt.getText().toString();
+				int aclen=editlength-answerString.length();
+				txtwatcher.setText(""+aclen +"  Characters Left");
+				if(aclen==0)
+				{
+					Toast.makeText(mContext,R.string.titleeditvalidator,Toast.LENGTH_LONG).show();
+				}
+			}
+		};
+
+		descriptionedt.addTextChangedListener(textWatcher);
+
 		Calendar c=Calendar.getInstance();
 		MyYear=c.get(Calendar.YEAR);
 		MyMonth=c.get(Calendar.MONTH);
 		MyDay=c.get(Calendar.DAY_OF_MONTH);
 
-		dobimg.setOnClickListener(this);
+		
 		browse.setOnClickListener(this);
 		post.setOnClickListener(this);
 		rel.setOnClickListener(this);
+		dobimg.setOnClickListener(this);
 		dateedt.setOnClickListener(this);
-		
-		
+
+
 	} 
 
 	/**When dialog prompt enables click positive button events
@@ -167,14 +163,14 @@ public class PostNewsFragment extends Fragment implements OnClickListener{
 				descriptionvalue=descriptionedt.getText().toString();
 				locationvalue=locationedt.getText().toString();
 				datevalue=dateedt.getText().toString();
-				 
-				 if(Utils.isOnline(mContext))
-					{
-				new Postdata(mContext,titlevalue,descriptionvalue,locationvalue,datevalue).execute();
-			}
-				 else{ 
-						mContext.showDialogFragment(Constants.ERROR_NO_NETWORK_DIALOG);
-					}	 
+
+				if(Utils.isOnline(mContext))
+				{
+					new Postdata(mContext,titlevalue,descriptionvalue,locationvalue,datevalue).execute();
+				}
+				else{ 
+					mContext.showDialogFragment(Constants.ERROR_NO_NETWORK_DIALOG);
+				}	 
 			}
 			break;
 		case R.id.Editdate:
