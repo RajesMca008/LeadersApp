@@ -20,19 +20,14 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.rnv.media.bean.Newsbean;
 import com.rnv.media.bean.QueriesBean;
 import com.rnv.media.dashboard.ImageLoader;
 import com.rnv.media.util.Constants;
 import com.rnv.media.util.Trace;
+import com.rnv.media.util.Utils;
 import com.rnv.mediaapp.BaseActionBarActivity;
 import com.rnv.mediaapp.JSONparser;
 import com.rnv.mediaapp.R;
@@ -44,31 +39,42 @@ public class ViewComments_SingleActivity extends BaseActionBarActivity{
 	private ArrayList<QueriesBean> galleryimages=null;
 	public ImageLoader imageLoader; 
 	private int position=0;
-	private int posval=0;
 	JSONparser jsonParser = new JSONparser();
+	ViewPagerAdapter adapter;
+	private ViewComments_SingleActivity mContext=null;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	@SuppressLint("NewApi")
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_viewpage);
+		mContext=this;
 		vp=(ViewPager) findViewById(R.id.vp);
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		Intent in=getIntent();
-		Bundle b=in.getExtras();
+		getSupportActionBar().setTitle(R.string.view_comments);
+
+		Bundle b=getIntent().getExtras();
 		if(b!=null)
 		{
 			galleryimages=(ArrayList<QueriesBean>) b.getSerializable("items");
 			position=b.getInt("itempos");
 		}
-		ViewPagerAdapter adapter = new ViewPagerAdapter(this, galleryimages);
+		
+		adapter = new ViewPagerAdapter(mContext, galleryimages);
+		
 		vp.setAdapter(adapter);
 		vp.setCurrentItem(position);
 		
+		adapter.imageLoader.clearCache();
+		/*if(Utils.isOnline(mContext))
+		{
 		new GetComments(this,galleryimages.get(position).getId()).execute();
-		
+		}
+		else{
+			mContext.showDialogFragment(Constants.ERROR_NO_NETWORK_DIALOG);
+		}*/
 		Trace.d(TAG, ""+galleryimages.get(position).getId());
-		
 	}
 
 	/**
@@ -107,29 +113,35 @@ public class ViewComments_SingleActivity extends BaseActionBarActivity{
 		}
 	}
 	public class ViewPagerAdapter extends PagerAdapter {
-		Activity activity;
+		
+		private android.app.Activity activity;
 		private ArrayList<QueriesBean> galleryimagesval;
 		LayoutInflater inflater=null;
-		public ViewPagerAdapter(Activity act, ArrayList<QueriesBean> galleryimages) {
+		public ImageLoader imageLoader;
+		@SuppressWarnings("static-access")
+		  
+		public ViewPagerAdapter(ViewComments_SingleActivity act, ArrayList<QueriesBean> galleryimages) {
 			galleryimagesval = galleryimages;
 			activity = act;
 			imageLoader = new ImageLoader(activity);
-			inflater=(LayoutInflater)getApplicationContext().getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
+			inflater=(LayoutInflater)activity.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
 		}
 		public int getCount() {
 			return galleryimagesval.size();
 		}
 		public Object instantiateItem(View collection, int position) {
-			posval=position; 
 			final ViewHolder holder;
 			View view= inflater.inflate(R.layout.viewcomments_single,null);
 			holder = new ViewHolder();
 
-			holder.title=(TextView) view.findViewById(R.id.name);
-			holder.description=(TextView) view.findViewById(R.id.comment);
+			holder.username=(TextView) view.findViewById(R.id.name);
+			holder.comment=(TextView) view.findViewById(R.id.comment);
+			holder.image=(ImageView) view.findViewById(R.id.img);
 			
-			holder.title.setText(galleryimagesval.get(position).getName());
-			holder.description.setText(galleryimagesval.get(position).getText());
+			holder.username.setText(galleryimagesval.get(position).getName());
+			holder.comment.setText(galleryimagesval.get(position).getText());
+			imageLoader.DisplayImage(galleryimagesval.get(position).getUrls(), activity, holder.image);
+
 			
 			((ViewPager) collection).addView(view, 0);
 			return view;
@@ -151,8 +163,9 @@ public class ViewComments_SingleActivity extends BaseActionBarActivity{
 		} 
 	}
 	public class ViewHolder{
-		TextView title;
-		TextView description;
+		TextView username;
+		TextView comment;
+		ImageView image;
 		
 	}
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -164,12 +177,7 @@ public class ViewComments_SingleActivity extends BaseActionBarActivity{
 		case android.R.id.home:
 			super.onBackPressed();
 			break;
-			/*case android.R.id.home:
-			// app icon in action bar clicked; go home
-			Intent homeintent = new Intent(this, DashBoardActivity.class);
-			homeintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			startActivity(homeintent);
-			return true;*/
+			
 		default:
 			break; 
 		}
@@ -177,7 +185,6 @@ public class ViewComments_SingleActivity extends BaseActionBarActivity{
 	}
 	@Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
 		super.onBackPressed();
 	}
 }

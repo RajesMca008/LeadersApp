@@ -118,11 +118,9 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 		@Override
 		protected void onPostExecute(JSONArray json) {
 			pDialog.dismiss();
-
+			try {
 			for (int i = 0; i < json.length(); i++) {
 				JSONObject stmainobj;
-				try {
-					Log.d("Create Response", json.toString());
 					obj=new QueriesBean();
 					stmainobj = json.getJSONObject(i);
 					String id = stmainobj.getString("id");
@@ -134,21 +132,13 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 					obj.setEmail(email);
 					obj.setText(text);
 				    obj.setUrls("http://www.madhavaramkantharao.com/siteadmin/queriespics/"+id+".jpg");
-
 					querybean.add(obj);
-					
-					System.out.println("Json responce is....");
-					System.out.println("id" + id);
-					System.out.println("name" + name);
-					System.out.println("email" + email);
-					System.out.println("text" + text);
-                    System.out.println("http://www.madhavaramkantharao.com/siteadmin/queriespics/"+id+".jpg");
-					listview.setAdapter(new CustomAdapter(mContext,querybean));
-
+			   }
+			     listview.setAdapter(new CustomAdapter(mContext,querybean));
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-			}}}
+			}}
 		/**
 		 * Adapter for Listview
 		 * @author Administrator
@@ -194,8 +184,7 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 				View v=convertView;
 				TextView newstext=null;
 				TextView titletext=null;
-				//RelativeLayout rel=null;
-				ImageView displayimage,rightarrow=null;
+				ImageView displayimage=null;
 				if(v==null) 
 				{
 					v = li.inflate(R.layout.fragment_customlist, parent, false);
@@ -204,24 +193,10 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 					v.setTag(R.id.img, v.findViewById(R.id.img));
 					v.setTag(R.id.linear, v.findViewById(R.id.linear));
 					v.setTag(R.id.rightArrow, v.findViewById(R.id.icon));
-
 				}   
 				newstext=(TextView) v.findViewById(R.id.newstext);
 				titletext=(TextView) v.findViewById(R.id.titletext);
 				displayimage=(ImageView) v.findViewById(R.id.img);
-				rightarrow=(ImageView) v.findViewById(R.id.icon); 
-				
-				/*
-				rel=(RelativeLayout) v.findViewById(R.id.linear);
-				RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-						RelativeLayout.LayoutParams.WRAP_CONTENT,
-						RelativeLayout.LayoutParams.WRAP_CONTENT);
-				lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-				lp.setMargins(0, 0, 23, 0);
-				rel.setLayoutParams(lp);*/
-				
-				//icon.setVisibility(View.GONE);
-				//rightarrow.setVisibility(View.GONE);
 	            titletext.setText(qlist.get(position).getName());
 	    		titletext.setTextColor(activity.getResources().getColor(R.color.app_title_text));
 	    		titletext.setTextSize(16);
@@ -229,8 +204,6 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 	    		newstext.setTextColor(Color.BLACK);
 	    		newstext.setTextSize(12);
 	            imageLoader.DisplayImage(qlist.get(position).getUrls(), activity, displayimage);
-
-	    		
 				return v; 
 			}
 		

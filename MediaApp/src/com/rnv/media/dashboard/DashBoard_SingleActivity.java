@@ -110,6 +110,8 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 		private ArrayList<Newsbean> newsitemsval;
 		LayoutInflater inflater=null;
 		public ImageLoader imageLoader ;
+		
+		@SuppressWarnings("static-access")
 		public ViewPagerAdapter(DashBoard_SingleActivity act, ArrayList<Newsbean> galleryimages) {
 			activity = act;
 			newsitemsval = galleryimages; 
@@ -170,11 +172,6 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 					border.setPadding(5, 10, 5, 5);
 					border.setBackgroundColor(mContext.getResources().getColor(R.color.grey));
 					holder.commentslayout.addView(border);
-
-
-
-
-
 				}
 			}
 			holder.title.setText(newsitemsval.get(position).getTitle());

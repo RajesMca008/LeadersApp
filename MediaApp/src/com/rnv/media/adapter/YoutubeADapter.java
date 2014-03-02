@@ -13,13 +13,10 @@ import com.rnv.media.video.VideoActivity;
 import com.rnv.mediaapp.R;
 public class YoutubeADapter extends BaseAdapter{
 	int mGalleryItemBackground;
-	/*ArrayList<String> thumbnailImage;
-	ArrayList<String> duration;
-	ArrayList<String> description;*/
 	ArrayList<GalleryBean> gallerylist;
 	public VideosLoader downloader;
 	public YoutubeADapter(Context c) {
-		mContext = c; 
+		mContext = c;  
 	} 
 	
 	public YoutubeADapter(VideoActivity mContext2,ArrayList<GalleryBean> galbean) {
