@@ -1,4 +1,4 @@
-package com.rnv.media.gcm;
+package com.rnv.mediaapp;
 
 public interface Config {
 

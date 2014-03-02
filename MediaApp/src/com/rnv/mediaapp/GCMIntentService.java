@@ -1,4 +1,4 @@
-package com.rnv.media.gcm;
+package com.rnv.mediaapp;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -34,9 +34,10 @@ public class GCMIntentService extends GCMBaseIntentService {
         Log.i(TAG, "Device registered: regId = " + registrationId);
         aController.displayMessageOnScreen(context, 
                                            "Your device registred with GCM");
-        Log.d("NAME", GCMNotificationActivity.name);
-        aController.register(context, GCMNotificationActivity.name, 
-        		GCMNotificationActivity.email, registrationId);
+        aController.register(context, 
+        		"", 
+   "" , registrationId);
+       
     }
  
     /**
@@ -124,7 +125,7 @@ public class GCMIntentService extends GCMBaseIntentService {
                 context.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = new Notification(icon, message, when);
         String title = context.getString(R.string.app_name);
-        Intent notificationIntent = new Intent(context, GCMNotificationActivity.class);
+        Intent notificationIntent = new Intent(context, SplashActivity.class);
         // set intent so it does not start a new activity
         notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |Intent.FLAG_ACTIVITY_SINGLE_TOP);
         PendingIntent intent =

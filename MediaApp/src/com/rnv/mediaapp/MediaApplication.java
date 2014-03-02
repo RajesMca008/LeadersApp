@@ -26,7 +26,6 @@ import android.os.PowerManager;
 import android.util.Log;
 
 import com.google.android.gcm.GCMRegistrar;
-import com.rnv.media.gcm.Config;
 import com.rnv.media.util.Constants;
 import com.rnv.media.util.SharedPreferenceUtil;
 import com.rnv.media.util.Trace;
