@@ -161,18 +161,22 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 					nametxt.setTextColor(mContext.getResources().getColor(R.color.app_title_text));
 					holder.commentslayout.addView(nametxt);
 
+					
 					TextView commenttxt=new TextView(mContext);
 					commenttxt.setTextSize(12);
 					commenttxt.setLayoutParams(lp);
 					commenttxt.setPadding(30, 10, 10, 5);
 					commenttxt.setText(commentsbean.get(i).getComment());
 					holder.commentslayout.addView(commenttxt);
+					LayoutParams lp1 = new LayoutParams( LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+
 					
 					TextView datetxt=new TextView(mContext);
 					datetxt.setTextSize(12);
-					datetxt.setLayoutParams(lp);
-					datetxt.setPadding(30, 10, 10, 5);
-					datetxt.setGravity(Gravity.RIGHT);
+					lp1.gravity=Gravity.RIGHT;
+					datetxt.setPadding(10, 10, 10, 5);
+				//	datetxt.setGravity(Gravity.RIGHT);
+					datetxt.setLayoutParams(lp1);
 					datetxt.setText(commentsbean.get(i).getDate());
 					holder.commentslayout.addView(datetxt);
 					

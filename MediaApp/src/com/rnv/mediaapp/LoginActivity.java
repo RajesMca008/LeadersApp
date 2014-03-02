@@ -1,7 +1,5 @@
 package com.rnv.mediaapp;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,14 +13,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.Signature;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Trace;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -167,7 +159,6 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			public void onUserInfoFetched(GraphUser user) {
 				LoginActivity.this.user = user;
 				//Toast.makeText(getApplicationContext(), "fb details"+user.getName(), Toast.LENGTH_LONG).show();
-
 				updateUI();
 			}
 		});	

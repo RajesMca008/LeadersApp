@@ -61,7 +61,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 	private Bitmap bitmap;
 	private static final int PICK_IMAGE = 1; 
 	private int addmorecount=0;
-	private boolean browseflag1,browseflag2=false;
+	private boolean browseflag1=false;
 	int MyYear,MyMonth,MyDay,MyHour,MyMinute;
 	private LinearLayout addmorelayout=null;
 	private String filename;
@@ -113,12 +113,11 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			public void onClick(View v) {
 
 				browseflag1=true; 
-				browseflag2=false;
 				if(addmorecount==0)
 				{
 					selectImageFromGallery();
 				}
-
+				
 				LayoutInflater layoutInflater =	(LayoutInflater)mContext.getSystemService(mContext.LAYOUT_INFLATER_SERVICE);
 				final View addView = layoutInflater.inflate(R.layout.galleryrow, null);
 				textOut = (TextView)addView.findViewById(R.id.text);
@@ -128,13 +127,17 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 
 					@Override
 					public void onClick(View v) {
+						 //((LinearLayout)addView.getParent()).removeView(addView);
 						browseflag1=false;
 						selectImageFromGallery();
 
 					}});
+				if(addmorecount<4)
+				{
 				addmorelayout.addView(addView);
+				}
 				addmorecount=addmorecount+1;
-
+ 
 			}
 		});
 	} 
@@ -221,7 +224,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			String picturePath = cursor.getString(columnIndex);
 			filename = selectedImage.getLastPathSegment().toString();
 			if(browseflag1)
-			{
+			{ 
 				imagetext1.setText(filename+".jpg");
 			}
 			else{
@@ -271,7 +274,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			paramdetails.add(new BasicNameValuePair("count",""+base64forimages.size()));
 			for(int j=0;j<base64forimages.size();j++)
 			{
-			paramdetails.add(new BasicNameValuePair("Iimage"+base64forimages.size(),base64forimages.get(j)));
+			paramdetails.add(new BasicNameValuePair("Iimage"+j,base64forimages.get(j)));
 
 			}}
 			//paramdetails.add(new BasicNameValuePair("Iimage1",image1_base64));
@@ -340,7 +343,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 	private boolean validation() {
 		String titleval = titleedt.getText().toString();  
 		String desval = descriptionedt.getText().toString();
-		String imageval1=imagetext1.getText().toString();
+		//String imageval1=imagetext1.getText().toString();
 		String locaval=locationedt.getText().toString();
 		String dateval=dateedt.getText().toString();
 
@@ -357,9 +360,9 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 		else if (desval.trim().equalsIgnoreCase("")) {
 			Toast.makeText(mContext, R.string.descriptionvalidator,Toast.LENGTH_LONG).show();
 		} 
-		else if (imageval1.trim().equalsIgnoreCase("")) {
+		/*else if (imageval1.trim().equalsIgnoreCase("")) {
 			Toast.makeText(mContext, R.string.imagevalidator,Toast.LENGTH_LONG).show();
-		} 
+		} */
 
 		else {
 			validCreds = true;
