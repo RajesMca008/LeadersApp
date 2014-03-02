@@ -8,6 +8,7 @@ public class QueriesBean implements Serializable{
 	private String name;
 	private String email;
 	private String text;
+	private String url;
 	
 	public String getId()
 	{
@@ -41,6 +42,12 @@ public class QueriesBean implements Serializable{
 	{
 		this.text=text;
 	}
-	
+	public void setUrls(String url) {
+		this.url=url;
+	}
+	public String getUrls()
+	{
+		return url;
+	}
 	
 }

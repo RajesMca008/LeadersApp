@@ -20,11 +20,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.rnv.media.bean.QueriesBean;
 import com.rnv.media.dashboard.DashBoardActivity;
@@ -41,7 +39,8 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 	private ViewQueriesActivity mContext;  
 	private ListView listview=null;
 	JSONparser jsonParser = new JSONparser();
-
+	private CustomAdapter adapter; 
+	
 	ArrayList<QueriesBean> querybean=new ArrayList<QueriesBean>();
 
 	QueriesBean obj;
@@ -57,8 +56,8 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 		super.onActivityCreated(savedInstanceState);
 		mContext = (ViewQueriesActivity) getActivity();
 		listview=(ListView) mContext.findViewById(R.id.newslist);
-		//listview.setFocusable(false);
-		//listview.setFocusableInTouchMode(false);
+		adapter=new CustomAdapter(mContext);
+		adapter.imageLoader.clearCache();
 		//Checking Availability of Internet
 		if(Utils.isOnline(mContext))
 		{
@@ -134,19 +133,22 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 					obj.setName(name);
 					obj.setEmail(email);
 					obj.setText(text);
+				    obj.setUrls("http://www.madhavaramkantharao.com/siteadmin/queriespics/"+id+".jpg");
+
 					querybean.add(obj);
-					/*System.out.println("Json responce is....");
+					
+					System.out.println("Json responce is....");
 					System.out.println("id" + id);
 					System.out.println("name" + name);
 					System.out.println("email" + email);
 					System.out.println("text" + text);
-*/
+                    System.out.println("http://www.madhavaramkantharao.com/siteadmin/queriespics/"+id+".jpg");
 					listview.setAdapter(new CustomAdapter(mContext,querybean));
 
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-			}}
+			}}}
 		/**
 		 * Adapter for Listview
 		 * @author Administrator
@@ -158,6 +160,7 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 			private ArrayList<QueriesBean> qlist=new ArrayList<QueriesBean>();
 			private LayoutInflater li=null;
 			public ImageLoader imageLoader; 
+			@SuppressWarnings("static-access")
 			public CustomAdapter(ViewQueriesActivity mContext, ArrayList<QueriesBean> querybean) {
 				activity=mContext;
 				qlist=querybean;
@@ -165,7 +168,7 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 				imageLoader = new ImageLoader(activity);
 			}
 
-			public CustomAdapter(DashBoardActivity mContext) {
+			public CustomAdapter(ViewQueriesActivity mContext) {
 				activity=mContext;
 				imageLoader = new ImageLoader(activity);
 			}
@@ -181,7 +184,7 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 			}
  
 			@Override
-			public long getItemId(int position) {
+	 		public long getItemId(int position) {
 				return position;
 			}
 
@@ -191,8 +194,8 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 				View v=convertView;
 				TextView newstext=null;
 				TextView titletext=null;
-				RelativeLayout rel=null;
-				ImageView icon,rightarrow=null;
+				//RelativeLayout rel=null;
+				ImageView displayimage,rightarrow=null;
 				if(v==null) 
 				{
 					v = li.inflate(R.layout.fragment_customlist, parent, false);
@@ -205,18 +208,19 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 				}   
 				newstext=(TextView) v.findViewById(R.id.newstext);
 				titletext=(TextView) v.findViewById(R.id.titletext);
-				icon=(ImageView) v.findViewById(R.id.img);
+				displayimage=(ImageView) v.findViewById(R.id.img);
 				rightarrow=(ImageView) v.findViewById(R.id.icon); 
 				
+				/*
 				rel=(RelativeLayout) v.findViewById(R.id.linear);
 				RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
 						RelativeLayout.LayoutParams.WRAP_CONTENT,
 						RelativeLayout.LayoutParams.WRAP_CONTENT);
 				lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
 				lp.setMargins(0, 0, 23, 0);
-				rel.setLayoutParams(lp);
+				rel.setLayoutParams(lp);*/
 				
-				icon.setVisibility(View.GONE);
+				//icon.setVisibility(View.GONE);
 				//rightarrow.setVisibility(View.GONE);
 	            titletext.setText(qlist.get(position).getName());
 	    		titletext.setTextColor(activity.getResources().getColor(R.color.app_title_text));
@@ -224,13 +228,12 @@ public class ViewQueriesFragment extends Fragment implements OnItemClickListener
 	    		newstext.setText(qlist.get(position).getText());
 	    		newstext.setTextColor(Color.BLACK);
 	    		newstext.setTextSize(12);
+	            imageLoader.DisplayImage(qlist.get(position).getUrls(), activity, displayimage);
+
 	    		
-	    		/*//for disabling click event for view
-	    		v.setEnabled(false);
-	    		v.setOnClickListener(null);*/
 				return v; 
 			}
-		}	
+		
 	} 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
