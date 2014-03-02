@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--      Copyright (C) 2011 Calvary Colors -->
+
+<resources>
+
+     <!-- Login Screen -->
+
+    <color name="login_app_tilteColor">#007cbf</color>
+    <color name="login_layt_startColor">#dedede</color>
+    <color name="login_layt_endColor">#e2e2e2</color>
+    <color name="login_layt_centerColor">#eeeeee</color>
+
+    <!-- ended here -->
+
+
+    <!-- Register screen -->
+
+    <color name="register_edt_solidColor">#ffffff</color>
+    <color name="register_edt_deafultstrokeColor">#dedede</color>
+    <color name="register_edt_pressedstrokeColor">#7FB4E8</color>
+    <color name="signInBtn_solidColor">#539CE6</color>
+    <color name="signInBtn_deafultstrokeColor">#5CADFF</color>
+    <color name="signInBtn_pressedstrokeColor">#539CE6</color>
+    
+    <color name="calvary_background">#F2F1F0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="why_register_bg">#f2f1f0</color>
+    <color name="app_title_text">#1ca3dc</color>
+    <color name="why_register_signup_bg">#fcfcfc</color>
+    <color name="why_register_signup_bg_pressed">#828282</color>
+    <color name="why_register_signup_border">#b8b8b8</color>
+    <color name="signin_selector">#828282</color>
+    <color name="signin_gradient_color">#5b5b5b</color>
+    <color name="button_shape_color">#FCFCFC</color>
+    <color name="webview_bottom_color">#ebebeb</color>
+    <color name="why_register_txt_color">#F47920</color>
+    <color name="signout_color">#FF6F10</color>
+    <color name="settings_video_text_color">#1CA3DC</color>
+    <color name="bg_grid">#2d2d2d</color>
+    <color name="black_ashcolor">#2d2d2d</color> 
+    <color name="darkblue">#00008B</color>
+    <color name="navyblue">#036</color>
+    <color name="navyblue1">#1d3f6c</color>
+    <color name="redtext">#ff0000</color>
+    
+    <!-- Setting Colors -->
+    <color name="list_selector_color">#72BEED</color>
+    <color name="tip_color">#AFAFAF</color>
+    <color name="transparent_color">#00000000</color>
+    <color name="disable_button_color">#999999</color>
+    <color name="true_state_color">#828282</color>
+    <color name="signout_button_default_color">#F5F5F6</color>
+    <color name="toggle_button_color">#5A84AA</color>
+    <color name="lineview_border_color">#AAAAAA</color>
+    <color name="signout_button_text_color">#FF6F10</color>
+    <color name="disclaimer_bg_color">#cddbe3</color>
+    <color name="info_text_color">#333333</color>
+
+    <!-- Splash Screens -->
+    <color name="divider_color">#e0e0e0</color>
+    <color name="subtitle_color">#808080</color>
+    <color name="location_screen_bg_color">#F1F0F0</color>
+    <color name="add_location_text_color">#333333</color>
+    <color name="add_location_subtext_color">#686868</color>
+    <color name="location_or_text_color">#2A2A2A</color>
+    <color name="ask_loctation_bg_color">#E3E3E3</color>
+    <color name="splash_orange_color">#f8813e</color>
+    <color name="lineview_color">#C2C2C2</color>
+
+    <!-- For Legal Shot Notice -->
+    <color name="legal_privacy_subtext_color">#555555</color>
+    <color name="legal_privacy_policy_link_text_color">#3789B9</color>
+    <color name="left_menu_group_header_bg">#1aa3db</color>
+
+    <!-- Edit profile -->
+    <color name="grey">#CCC</color>
+    <color name="bg_blue">#1aa3db</color>
+    <!-- End Edit profile -->
+
+
+<!-- mounika -->
+    <color name="include_header_background">#F3E2A9</color>
+<color name="include_header_text_background">#DF0101</color>
+<color name="sub_title_textcolor">#4B2723</color>
+
+ <color name="edt_bg">#c1dbd0</color>
+
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rnv="http://schemas.android.com/apk/res/com.rnv.mediaapp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/left_menu_group_header_bg"
+    android:orientation="horizontal"
+    android:padding="8dp"
+     >
+
+    <com.rnv.media.views.TypefacedTextView
+        android:id="@+id/group_title"
+        style="@style/MyTheme.ActionBar.TitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+       
+        android:textColor="@color/app_title_text"
+        rnv:ttf_tv_name="Roboto-Bold.ttf"
+        rnv:ttf_tv_textStyle="0" />
+
+    <com.rnv.media.views.TypefacedTextView
+        android:id="@+id/actionbar_title_text"
+        style="@style/MyTheme.ActionBar.TitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        
+        android:textColor="@color/app_title_text"
+        rnv:ttf_tv_name="Roboto-Bold.ttf"
+        rnv:ttf_tv_textStyle="0" />
+
+</RelativeLayout>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Madhavaram Kantharao BJP</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="exit_message">Do you want to exit?</string>
+    <string name="rightsreserved">© 2014- all rights reserved by AB CORPORATION</string>
+    <!-- Action bar attributes -->
+    <string name="search">Search</string>
+    <string name="add">add</string>
+    <string name="play">Play</string>
+
+    <!-- Admin post attrs -->
+    <string name="title">Title</string>
+    <string name="location">Location</string>
+    <string name="description">Description</string>
+    <string name="submit">Submit</string>
+    <string name="choose_img1">Choose Image file1</string>
+    <string name="choose_img2">Choose Image file2</string>
+    <string name="date">Date(YYYY-MM-DD)</string>
+    <string name="image">Image File</string>
+    <string name="audio">Audio File</string>
+    <string name="image1">Image file1</string>
+    <string name="image2">Image file2</string>
+    <string name="name">Enter Your Name</string>
+    <string name="email">Enter Your Email</string>
+    <string name="query">Add Suggestion/Query</string>
+    <string name="post">Post</string>
+    <string name="comment">Enter your Comment here</string>
+    <string name="comment_validator">Enter comments..</string>
+    <string name="country">Country</string>
+    <string name="state">State</string>
+    <string name="save">Save</string>
+    <string name="titlevalidator">Please Enter Title of News</string>
+    <string name="descriptionvalidator">Please Enter Description of News</string>
+    <string name="locationvalidator">Please Enter Location</string>
+    <string name="datevalidator">Please Enter Today\'s date</string>
+    <string name="imagevalidator">Choose image file</string>
+    <string name="audiovalidator">Choose Audio File</string>
+    <string name="comments">Comments</string>
+    <string name="upload">Upload</string>
+    <string name="browse">Browse</string>
+    <string name="titleeditvalidator">Maximum Limit Reached..</string>
+    <string name="charlimit">400 Characters</string>
+
+    <!-- Dialog Fragment -->
+    <!-- <string name="error">Error</string> -->
+    <string name="error_network">Network Status Error</string>
+    <string name="error_implement_dialog_interface">Parent Activity must implement Dialog Interface.</string>
+    <!-- end Dialog Fragment -->
+    <string name="welcometext">Welcome to AB Corporation</string>
+    <string name="updateuserprofiletext">User Profile</string>
+    <!-- Twitter -->
+    <string name="please_wait_label">Please Wait&#8230;</string>
+    <string name="twitter_send">Send</string>
+    <string name="sharevia">" via @base "</string>
+
+    <!-- base DashBoard -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="action_websearch">Web search</string>
+    <string name="app_not_available">Sorry, there\'s no web browser available</string>
+    <string name="no_connection_text">No Connection</string>
+    <string name="ok_text">OK</string>
+    <string name="please_try_again">Please try again.</string>
+    <string name="try_again">Try Again</string>
+    <string name="enable_locations_settings">Turn On Location Services to Allow \"base\" to Determine Your Location</string>
+    <string name="no_internet_connection_text">You must connect to a Wi-Fi or cellular data network to use this section of the base  app.</string>
+    <string name="no_connection">No Connection</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+
+    <!-- Update profile text -->
+
+    <string name="upadate_header_text">Update Profile</string>
+    <string name="text_education">Qualification</string>
+    <string name="text_hobies">Hobbies</string>
+    <string name="text_address">Address</string>
+    <string name="text_year">Year</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_skip">Skip</string>
+
+    <!-- Registration page text -->
+
+    <string name="signup_header">Signup</string>
+    <string name="text_name">Name</string>
+    <string name="text_email">Email</string>
+    <string name="text_pwd">Password</string>
+    <string name="text_repwd">Confirm-password</string>
+    <string name="text_mobno">Mobile</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="text_dob">Date of Birth</string>
+    <string name="forgot">Forgot Password</string>
+    <string name="Logout">Logout</string>
+    <string name="Login">Login</string>
+    <string name="text_technology">Technology</string>
+    <string name="text_subcategory">Subcategory</string>
+    <!-- Login page text -->
+    <string name="loginpage_header">User Login</string>
+    <string name="text_mail">E-Mail</string>
+    <string name="text_password">Password</string>
+    <string name="acceptterms">Accept terms &amp; conditions</string>
+    <string name="check_remember">Remember me</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_signup">Signup</string>
+
+    <!-- Registration page validation text -->
+    <!--
+    <string name="Name_field">Name cannot be Empty!</string>
+    <string name="Email_field">Email cannot be Empty!</string>
+    <string name="pwd_field">Password cannot be Empty!</string>
+    <string name="repwd_field">Re-pwd cannot be Empty!</string>
+    <string name="contact_field">Contact cannot be Empty!</string>
+    <string name="Dob_field">Enter DateofBirth field!</string>
+    -->
+    <string name="field_notempty">Fields cannot be made Empty</string>
+    <string name="email_proper">Enter Valid EmailId</string>
+    <string name="valid_number">Enter valid Number!</string>
+    <string name="exist_email">Email already exist..</string>
+    <string name="acceptterms_field">Accept terms and conditions!!</string>
+    <string name="pwd_repwd_match">Password does not match!!</string>
+    <string name="updatedsuccess">Updated Successfully</string>
+
+    <!-- forgotpassword text -->
+    <string name="Email_text">E-Mail</string>
+    <string name="send_Btn">Send</string>
+    <string name="enter_mail">Please Enter your Mail id</string>
+    <string name="pwd_donot_match">password do not match</string>
+
+    <string-array name="Home_menu_items">
+        <item>News</item>
+        <item>Speeches</item>
+        <item>Gallery</item>
+        <item>Video/Blog</item>
+        <item>Queries/Suggestions</item>
+    </string-array>
+    <string-array name="Home_menu_items_admin">
+        <item>Post News</item>
+        <item>Post Speeches</item>
+        <item>Post Images</item>
+        <item>Post Video/Blog</item>
+        <item>View Suggestions</item>
+    </string-array>
+
+    <string name="post_news">Post News</string>
+    <string name="post_images">Post Images</string>
+    <string name="post_videos">Post Video/Blog</string>
+    <string name="post_speeches">Post Speeches</string>
+    <string name="view_comments">View Suggestions</string>
+    <string name="news_text">News</string>
+    <string name="speeches_text">Speeches</string>
+    <string name="gallery_text">Gallery</string>
+    <string name="video_text">Video/Blog</string>
+    <string name="queries">Queries/Suggestions</string>
+
+    <!-- Action Bar action items -->
+    <string name="action_search">Search</string>
+    <string name="action_location_found">Location Found</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_contacts">Contacts</string>
+    <string name="action_help">Help</string>
+    <string name="action_check_updates">Check for Updates</string>
+    <string name="search_hint">Search Technology..</string>
+    <string name="snotxt">Sno</string>
+    <string name="organizationtxt">Organization</string>
+    <string name="addresstxt">Address</string>
+    <string name="mobiletxt">Mobile</string>
+    <string name="emailtxt">Email</string>
+    <string name="locationtxt">Location</string>
+    <string name="please_enter_username">Enter UserName..!</string>
+    <string name="please_enter_email">Enter Email Address..!</string>
+    <string name="please_enter_mobile">Enter Mobile number..!</string>
+    <string name="please_enter_suggestion">Enter Any suggestions/Queries!!!</string>
+    <string name="please_enter_pwd">Please Enter Password</string>
+
+    <!-- Facebook attributes -->
+     <string name="cancelled">Cancelled</string>
+    <string name="permission_not_granted">Unable to perform selected action because permissions were not granted.</string>
+    <string name="ok">OK</string>
+    <string name="hello_user">Hello %1$s!</string>
+    <string name="success">Success</string>
+    <string name="successfully_posted_post">Successfully posted \'%1$s\'.\nPost ID: %2$s</string>
+    <string name="error">Error</string>
+    <string name="status_update">Updating status for %1$s at %2$s</string>
+    <string name="photo_post">Photo Post</string>
+    <string name="you_picked">You picked:</string>
+    <string name="no_friends_selected">&lt;No friends selected&gt;</string>
+    <string name="no_place_selected">&lt;No place selected&gt;</string>
+    <string name="pick_seattle_place">Pick a Seattle Place</string>
+    <string name="app_id">176800855701816</string>
+    <!-- You need to change it later .with correct config.-->
+    <string name="exception">Exception: %1$s</string>
+
+    
+    <!-- GCM Attrs 612076898871899-->
+     <string name="server_register_error">GCM error failed to send.</string>
+    <string name="server_registering">Regsitering</string>
+    <string name="server_registered">registered successfully.</string>
+    <string name="server_unregister_error">sorry for unregisteration.</string>
+    <string name="server_unregistered">un registered.</string>
+    
+    
+    <string name="gcm_unregistered">Un Regsitered</string>
+    <string name="gcm_deleted">deleted</string>
+    <string name="gcm_error">GCM Error</string>
+    <string name="gcm_recoverable_error">GCM Recoverable</string>
+
+    <!--GCM Regsiter Screen -->
+
+    <string name="register_name_str">Name</string>
+    <string name="register_name_hint_str">Enter Name</string>
+    <string name="register_email_str">Email</string>
+    <string name="register_email_hint_str">Enter email</string>
+    <string name="register_phone_str">Phone number</string>
+    <string name="register_phone_hint_str">Enter phone number</string>
+    <string name="register_password_str">Password</string>
+    <string name="register_password_hint_str">Enter password</string>
+    <string name="register_confirmPassword_str">Confirm password</string>
+    <string name="register_confirmPassword_hint_str">Enter confirm password</string>
+    <string name="register_header_str">User Registeration</string>
+    <string name="register_btn_str">Register</string>
+    
+    
+    
+    
+    
+   
+   
+
+</resources>

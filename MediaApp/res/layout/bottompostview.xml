@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="10dp" >
+
+        <EditText
+            android:id="@+id/edtcomment"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="@string/comment"
+            android:textSize="13sp"
+            android:gravity="top"
+            android:background="@drawable/round_rect_shape"
+             />
+
+        <Button
+            android:id="@+id/post"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
+            android:background="@drawable/action_item_btn"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/edtcomment"
+            android:textColor="@color/black"
+            android:text="@string/post" />
+    </RelativeLayout>

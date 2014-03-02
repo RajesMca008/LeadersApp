@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rnv.mediaapp"
+    android:versionCode="2"
+    android:versionName="1.1" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <permission
+        android:name="com.rnv.mediaapp.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.rnv.mediaapp.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name="com.rnv.mediaapp.MediaApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.rnv.mediaapp.SplashActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.rnv.mediaapp.LoginActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.mediaapp.SignUp"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.dashboard.DashBoardActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.speech.SpeechesActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.gallery.GalleryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.video.VideoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.speech.Speech_SingleActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.gallery.Gallery_SingleActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.gallery.Gallery_AlbumActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.dashboard.DashBoard_SingleActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.admin.PostNewsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.admin.PostGalleryActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.admin.PostSpeechesActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.admin.PostVideoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.suggestion.SuggestActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- for facebook implementation -->
+        <activity
+            android:name="com.rnv.media.facebook.FacebookActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name="com.rnv.media.admin.ViewCommentsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.admin.ViewComments_SingleActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.video.OpenYouTubePlayerActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Black" >
+        </activity>
+        <activity
+            android:name="com.rnv.media.admin.ViewQueriesActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <!-- GCM Activity Declarations -->
+        <activity
+            android:name="com.rnv.media.gcm.RegisterActivity"
+            android:screenOrientation="portrait"
+             >
+           
+        </activity>
+        <activity
+            android:name="com.rnv.media.gcm.GCMNotificationActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name" >
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.rnv.mediaapp" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.rnv.media.gcm.GCMIntentService" />
+
+        <!-- End of GCM ACT declarations -->
+
+
+        <!-- following code is added for urban airship push notification -->
+
+        <activity
+            android:name="com.rnv.media.urbanairship.AlertActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <!-- REQUIRED for Urban Airship GCM -->
+        <receiver android:name="com.urbanairship.CoreReceiver" />
+        <receiver
+            android:name="com.urbanairship.push.GCMPushReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!-- MODIFICATION REQUIRED - Use your package name as the category -->
+                <category android:name="com.rnv.mediaapp" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.urbanairship.push.PushService"
+            android:label="Push Notification Service" />
+        <service
+            android:name="com.urbanairship.push.PushWorkerService"
+            android:label="Push Notification Worker Service" />
+        <service
+            android:name="com.urbanairship.analytics.EventService"
+            android:label="Event Service" />
+
+        <!-- This is required for persisting preferences related to push and location -->
+        <provider
+            android:name="com.urbanairship.UrbanAirshipProvider"
+            android:authorities="com.rnv.mediaapp.urbanairship.provider"
+            android:exported="false"
+            android:multiprocess="true" />
+        <!-- END OF REQUIRED ITEMS -->
+
+
+        <!-- to receive push, push opened and registration completed intents -->
+        <receive android:name="com.rnv.mediaapp.urbanairship.IntentReceiver" />
+
+        <!-- to receive push, push opened and registration completed intents -->
+        <receive android:name="com.rnv.mediaapp.urbanairship.IntentReceiver" />
+        <!-- REQUIRED -->
+        <service android:name="com.urbanairship.iap.marketinterface.BillingService" />
+        <!-- REQUIRED -->
+        <receiver android:name="com.urbanairship.iap.marketinterface.BillingReceiver" >
+            <intent-filter>
+                <action android:name="com.android.vending.billing.IN_APP_NOTIFY" />
+                <action android:name="com.android.vending.billing.RESPONSE_CODE" />
+                <action android:name="com.android.vending.billing.PURCHASE_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- END of Urban Airship GCM -->
+
+    </application>
+
+     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    
+    <!-- REQUIRED PERMISSIONS (for Urban Airship GCM) -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- GCM requires a Google account. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" /> <!-- This app has permission to register with GCM and receive message -->
+
+    <permission
+        android:name="com.rnv.mediaapp.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.rnv.mediaapp.permission.C2D_MESSAGE" />
+    <!-- The two elements above ensure that only this application can receive the messages and registration result -->
+
+
+
+</manifest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <!-- <com.rnv.abcorp.views.TypefacedTextView
+        android:id="@+id/actionbar_title_text"
+        style="@style/MyTheme.ActionBar.TitleTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        rnv:ttf_tv_name="Roboto-Bold.ttf"
+        rnv:ttf_tv_textStyle="0"
+        android:text="@string/app_name"
+        android:singleLine="true"
+        android:textColor="@color/app_title_text" /> -->
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher" 
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

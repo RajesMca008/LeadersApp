@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/Edittitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/title"
+                android:inputType="text"
+                android:singleLine="true"
+                android:textColor="@color/black" >
+            </EditText>
+
+            <EditText
+                android:id="@+id/Editlocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Edittitle"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="@string/location"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/Editdate"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/Editlocation"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="@string/date"
+                android:inputType="number"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:id="@+id/dobimage"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignRight="@+id/Editdate"
+                android:layout_alignTop="@+id/Editdate"
+                android:background="@drawable/ic_calender"
+                android:padding="3dp" />
+
+            <EditText
+                android:id="@+id/Textimg"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignBaseline="@+id/browse"
+                android:layout_below="@+id/Editdate"
+                android:layout_marginTop="12dp"
+                android:hint="@string/image"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/browse"
+                android:layout_width="85dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/Editdate"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/action_item_btn"
+                android:src="@drawable/gal"
+                android:text="@string/browse" />
+
+            <TextView
+                android:id="@+id/textwatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/Textimg"
+                android:layout_marginTop="12dp"
+                android:singleLine="true"
+                android:text="@string/charlimit"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/Editdescription"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/textwatch"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/round_rect_shape"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="@string/description"
+                android:maxLength="400"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="85dp"
+                android:layout_height="35dp"
+                android:layout_below="@+id/Editdescription"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/action_item_btn"
+                android:text="@string/post" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

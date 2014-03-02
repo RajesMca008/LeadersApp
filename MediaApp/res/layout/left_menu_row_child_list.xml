@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rnv="http://schemas.android.com/apk/res/com.rnv.mediaapp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp" 
+   >
+
+    <ImageView
+        android:id="@+id/left_menu_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher"
+        android:contentDescription="@string/app_name" />
+
+    <com.rnv.media.views.TypefacedTextView
+        android:id="@+id/left_menu_titlte"
+        style="@style/left_menu_child_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/left_menu_image"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        rnv:ttf_tv_name="Roboto-Bold.ttf"
+        android:textSize="14sp"
+        rnv:ttf_tv_textStyle="0" />
+
+    <!--
+         <ImageView
+        android:id="@+id/left_menu_right_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_launcher" />
+    -->
+
+</RelativeLayout>

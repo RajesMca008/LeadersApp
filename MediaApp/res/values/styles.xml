@@ -1,0 +1,207 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android" 
+    xmlns:rnv="http://schemas.android.com/apk/res-auto">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/MyTheme.ActionBarStyle</item>
+        <item name="actionMenuTextAppearance">@style/MyTheme.ActionBar.MenuTextStyle</item>
+        <item name="actionMenuTextColor">@color/app_title_text</item>
+       
+        
+    </style>
+
+    <style name="MyTheme.ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+        <item name="android:background">@null</item>
+        
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/app_title_text</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+   <style name="MyTheme.ActionBar.normalTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+     <style name="MyTheme.ActionBar.FormSubtitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+   
+    <style name="MyTheme.ActionBar.MenuTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textColor">@color/app_title_text</item>
+        <item name="android:textSize">21sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- For Setting Screen -->
+    <style name="settings_style_unselected">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="settings_style_selected">
+        <item name="android:textColor">#F8813E</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="webmd_help_info_style">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="settings_signout_style">
+        <item name="android:textColor">@color/signout_color</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="view_calvary_video_text_style">
+        <item name="android:textColor">@color/settings_video_text_color</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="pleasewaittext">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- For disclimar screen styles -->
+    <style name="webmd_app_info_text_style">
+        <item name="android:textColor">@color/info_text_color</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="left_menu_group_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="left_menu_header_view_style">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="left_menu_edit_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="left_menu_child_item">
+        <item name="android:textColor">@color/left_menu_group_header_bg</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="who_is_this_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="location_screen_style.add_location_text_style">
+        <item name="android:textColor">@color/add_location_text_color</item>
+    </style>
+
+    <style name="location_screen_style">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="location_screen_normal_style">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="add_location_subtext_style">
+        <item name="android:textColor">@color/add_location_subtext_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="location_screen_style.location_or_text_style">
+        <item name="android:textColor">@color/location_or_text_color</item>
+    </style>
+
+    <style name="location_screen_normal_style.use_my_location_style">
+        <item name="android:textColor">@color/location_or_text_color</item>
+    </style>
+
+    <style name="ask_location_text_style">
+        <item name="android:textColor">@color/add_location_subtext_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="profile_created_style">
+        <item name="android:textColor">@color/add_location_text_color</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="profile_created_textview_style">
+        <item name="android:textColor">@color/add_location_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+    <!-- No_Internet_Connection styles -->
+    <style name="no_connection_text_style">
+        <item name="android:textColor">@color/location_or_text_color</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="no_connection_subtext_style">
+        <item name="android:textColor">@color/location_or_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <!-- For Legal Short Notice -->
+    <style name="legal_privacy_style">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="legal_privacy_subtext_style">
+        <item name="android:textColor">@color/legal_privacy_subtext_color</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="legal_privacy_subtext_info_style">
+        <item name="android:textColor">@color/legal_privacy_subtext_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="privacy_policy_link_style">
+        <item name="android:textColor">@color/legal_privacy_policy_link_text_color</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="left_menu_header_profile">
+        <item name="android:background">@color/splash_orange_color</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="locations_listrow_style">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">17sp</item>
+    </style>
+
+</resources>

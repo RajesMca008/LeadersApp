@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" 
+   xmlns:rnv="http://schemas.android.com/apk/res/com.rnv.mediaapp">
+    <item
+        android:id="@+id/action_search"
+        rnv:actionViewClass="android.widget.SearchView"
+        android:icon="@drawable/ic_action_search"
+        rnv:showAsAction="ifRoom|collapseActionView"
+        android:title="@string/search"/>
+      <item
+        android:id="@+id/action_share"
+        rnv:showAsAction="ifRoom"
+        rnv:actionLayout="@layout/menulayout"
+        android:icon="@drawable/ic_action_share"
+        android:title="@string/add"/> 
+    
+</menu>

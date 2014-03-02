@@ -1,0 +1,25 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
+        <item name="android:actionMenuTextAppearance">@style/MyTheme.ActionBar.MenuTextStyle</item>
+        <item name="android:actionMenuTextColor">@color/app_title_text</item>
+    </style>
+
+    <style name="MyTheme.ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/app_title_text</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.MenuTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textColor">@color/app_title_text</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+</resources>

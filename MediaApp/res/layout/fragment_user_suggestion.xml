@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp" >
+
+    <EditText
+        android:id="@+id/EditName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:singleLine="true"
+        android:textColor="@color/black" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/Editemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditName"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="text"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/Editmobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Editemail"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Enter Mobile Number"
+        android:inputType="number"
+        android:maxLength="10"
+        android:singleLine="true"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/Textimg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignBaseline="@+id/browse"
+        android:layout_below="@+id/Editmobile"
+        android:layout_margin="10dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/image"
+        android:singleLine="true"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/browse"
+        android:layout_width="85dp"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/Editmobile"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/action_item_btn"
+        android:src="@drawable/gal"
+        android:layout_marginRight="13dp"
+        android:text="@string/browse" />
+
+    <EditText
+        android:id="@+id/Editsuggest"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@+id/Textimg"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/round_rect_shape"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="@string/query"
+        android:textColor="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Editsuggest"
+        android:layout_centerHorizontal="true" >
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/action_item_btn"
+            android:text="@string/submit" />
+
+        <!--
+             <Button
+            android:id="@+id/attachfile"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@+id/submit"
+            android:background="@drawable/action_item_btn"
+            android:text="@string/browse" />
+        -->
+    </RelativeLayout>
+
+</RelativeLayout>
