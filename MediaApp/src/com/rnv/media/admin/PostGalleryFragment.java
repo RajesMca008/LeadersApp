@@ -36,7 +36,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.LinearLayout.LayoutParams;
 
 import com.rnv.media.util.Constants;
 import com.rnv.media.util.Trace;
@@ -46,6 +45,7 @@ import com.rnv.mediaapp.R;
 
 public class PostGalleryFragment extends Fragment implements OnClickListener{
 
+	@SuppressWarnings("unused")
 	private static final String TAG = "PostGalleryFragment";
 	private View mView;
 	private PostGalleryActivity mContext;   
@@ -53,7 +53,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 	private ImageButton dobimg;
 
 	private EditText imagetext1;
-	private String image1_base64,image2_base64,titlevalue,descriptionvalue,locationvalue,datevalue;
+	private String image1_base64,titlevalue,descriptionvalue,locationvalue,datevalue;
 	private Button post;
 	private ImageButton browse1;
 	private JSONparser jsonParser = new JSONparser();

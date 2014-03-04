@@ -1,12 +1,10 @@
 package com.rnv.media.admin;
 
-import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
-import android.widget.SearchView;
 
 import com.rnv.media.util.Constants;
 import com.rnv.mediaapp.BaseNavDrawerActivity;
@@ -15,9 +13,7 @@ import com.rnv.mediaapp.R;
 public class PostGalleryActivity extends BaseNavDrawerActivity{
 	PostGalleryActivity mContext;
 	PostGalleryFragment mFragment;
-	private SearchView mSearchView;
 
-	private static ArrayList<String> mResults;
 	@Override  
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); 
@@ -47,6 +43,7 @@ public class PostGalleryActivity extends BaseNavDrawerActivity{
 	protected void onResume() {
 		super.onResume();
 	} 
+	@SuppressWarnings("unused")
 	private boolean isAlwaysExpanded() {
 		return false;
 	}}

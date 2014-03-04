@@ -114,7 +114,7 @@
             facebook:confirm_logout="false"
             facebook:fetch_user_info="true"
             facebook:login_text="Login With Facebook"
-            facebook:logout_text="Login With Facebook" />
+            facebook:logout_text="Log out" />
 
         <TextView
             android:id="@+id/forgotpwd"

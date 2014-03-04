@@ -31,8 +31,8 @@
             android:layout_below="@+id/video_title"
             android:layout_toLeftOf="@+id/rightArrow"
             android:layout_toRightOf="@+id/video1"
-            android:visibility="gone"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/video_url"
@@ -48,12 +48,12 @@
 
         <ImageView
             android:id="@+id/rightArrow"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="25dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:padding="5dp"
-            android:src="@drawable/ic_right6" />
+            android:layout_margin="5dp"
+            android:src="@drawable/icon_more" />
 
         <View
             android:layout_width="match_parent"

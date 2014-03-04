@@ -156,7 +156,7 @@ OnDialogFragmentClickListener, OnClickListener {
 		/*TextView rate=(TextView) footerView.findViewById(R.id.rate);
 		TextView termsofuse=(TextView) footerView.findViewById(R.id.terms);
 		TextView policy=(TextView) footerView.findViewById(R.id.policy);
-		rate.setOnClickListener(this);*/
+		rate.setOnClickListener(this);*/ 
 		bottomView.setOnClickListener(this);
 	}
 	// DrawItemClick listeners for expandable listview in left navigation drawer

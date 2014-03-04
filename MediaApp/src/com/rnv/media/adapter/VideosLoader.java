@@ -55,5 +55,5 @@ public class VideosLoader extends AsyncTask<String, Void, Bitmap>{
 			ImageView imageView = imageViewReference.get();
 			if (imageView != null) {
 				
-				imageView.setImageResource(R.drawable.laoding_small);
+				imageView.setImageResource(R.drawable.ic_load);
 			}}}}

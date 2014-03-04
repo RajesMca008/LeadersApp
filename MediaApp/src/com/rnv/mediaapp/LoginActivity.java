@@ -89,6 +89,7 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 		public void call(final Session session, SessionState state, Exception exception) {
 			onSessionStateChange(session, state, exception);
 			updateUI();
+			
 			if (session.isOpened()) { 
 				fbAccessToken = session.getAccessToken();
 				// make request to get facebook user info
@@ -101,7 +102,6 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 						String fbName = user.getName();
 						String firstname=user.getFirstName();
 						String lastname=user.getLastName();
-						//Toast.makeText(getApplicationContext(), "fb details"+fbId+fbName, Toast.LENGTH_LONG).show();
 						adminflag=false;
 						userflag=true;
 						mContext.finish();
@@ -109,8 +109,7 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 						SharedPreferenceUtil.saveStringInSP(mContext, Constants.SP_LOGIN_UNCHECK_PASSWORD, fbId);
 						Intent in=new Intent(getApplicationContext(),DashBoardActivity.class);
 						startActivity(in);
-						//Log.i("fb", fbName);
-					}});}}
+					}});}} 
 	};
 
 	private FacebookDialog.Callback dialogCallback = new FacebookDialog.Callback() {
@@ -158,7 +157,7 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			@Override
 			public void onUserInfoFetched(GraphUser user) {
 				LoginActivity.this.user = user;
-				//Toast.makeText(getApplicationContext(), "fb details"+user.getName(), Toast.LENGTH_LONG).show();
+			//	Toast.makeText(getApplicationContext(), "facebooklogin called", Toast.LENGTH_LONG).show();
 				updateUI();
 			}
 		});	

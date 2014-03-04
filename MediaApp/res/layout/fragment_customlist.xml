@@ -31,7 +31,6 @@
             android:paddingTop="10dp"
             android:paddingBottom="3dp"
             android:maxLines="3"
-            android:text="titleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
             android:textColor="@color/redtext" />
 
         <TextView
@@ -44,7 +43,6 @@
             android:paddingTop="3dp"
             android:paddingBottom="10dp"
             android:layout_below="@+id/titletext"
-            android:text="subtitleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee..."
             android:textColor="@color/black_ashcolor"
             android:textSize="12sp" />
     </RelativeLayout>
