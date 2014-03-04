@@ -44,6 +44,7 @@ import com.rnv.media.util.SharedPreferenceUtil;
 public class LoginActivity extends BaseActionBarActivity implements OnClickListener{
 	private LoginActivity mContext=null;
 
+
 	private EditText editmail = null;
 	private EditText editpwd = null;
 	private Button signinbtn = null;
@@ -89,7 +90,7 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 		public void call(final Session session, SessionState state, Exception exception) {
 			onSessionStateChange(session, state, exception);
 			updateUI();
-			
+
 			if (session.isOpened()) { 
 				fbAccessToken = session.getAccessToken();
 				// make request to get facebook user info
@@ -157,16 +158,18 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			@Override
 			public void onUserInfoFetched(GraphUser user) {
 				LoginActivity.this.user = user;
-			//	Toast.makeText(getApplicationContext(), "facebooklogin called", Toast.LENGTH_LONG).show();
+				//	Toast.makeText(getApplicationContext(), "facebooklogin called", Toast.LENGTH_LONG).show();
 				updateUI();
 			}
-		});	
+		});	 
 	}
 
-	protected void handlePendingAction() {
+	@Override
+	public void onBackPressed() {
+
+		showDialogFragment(Constants.EXIT);
 
 	}
-
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -211,7 +214,7 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			.show();
 			pendingAction = PendingAction.NONE;
 		} else if (state == SessionState.OPENED_TOKEN_UPDATED) {
-			handlePendingAction();
+			
 		}
 		updateUI();
 	}
@@ -314,7 +317,7 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			imm1.hideSoftInputFromWindow(signin_relative_layout.getWindowToken(), 0);
 			break; 
 		case R.id.signupBtn:
-/*
+			/*
 			try {
 		        PackageInfo info = getPackageManager().getPackageInfo(
 		                "com.rnv.mediaapp", 
@@ -334,13 +337,12 @@ public class LoginActivity extends BaseActionBarActivity implements OnClickListe
 			Intent signupin=new Intent(mContext, SignUp.class);
 			signupin.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(signupin);
-			
+
 			break;
 		default:  
 			break;
 		}		
 	}
-
 	private boolean validation() {
 		String userName = editmail.getText().toString();  
 		String passWord = editpwd.getText().toString();
