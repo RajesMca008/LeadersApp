@@ -38,6 +38,7 @@ import com.rnv.media.bean.CommentsBean;
 import com.rnv.media.bean.Newsbean;
 import com.rnv.media.util.Constants;
 import com.rnv.media.util.SharedPreferenceUtil;
+import com.rnv.media.util.Trace;
 import com.rnv.media.util.Utils;
 import com.rnv.mediaapp.BaseActionBarActivity;
 import com.rnv.mediaapp.JSONparser;
@@ -359,6 +360,8 @@ public class DashBoard_SingleActivity extends BaseActionBarActivity{
 						String name = stmainobj.getString("name");
 						String comment = stmainobj.getString("comment");
 						String dateval=stmainobj.getString("date");
+						
+						Trace.d("Date", dateval);
 						
 						commentsobj.setId(id);
 						commentsobj.setUserName(name);

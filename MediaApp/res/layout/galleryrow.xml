@@ -9,7 +9,6 @@
         android:layout_height="35dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="12dp"
-        
         android:background="@drawable/action_item_btn"
         android:text="@string/browse"
         android:textColor="@color/white" />
@@ -22,6 +21,8 @@
         android:layout_alignBaseline="@+id/browse"
         android:hint="@string/image"
         android:singleLine="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:textColor="@color/black" />
 
 </RelativeLayout>

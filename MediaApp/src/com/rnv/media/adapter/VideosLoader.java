@@ -38,7 +38,7 @@ public class VideosLoader extends AsyncTask<String, Void, Bitmap>{
 			return null;
 		}
 		catch (OutOfMemoryError e) 
-		{
+ 		{
 			System.gc();
 			Log.d(TAG,"######Out of In ASYNTASK::::::::::::::::::::::::::");
 			return null;

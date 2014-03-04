@@ -56,7 +56,7 @@ public class PostNewsFragment extends Fragment implements OnClickListener{
 	private String image_str,titlevalue,descriptionvalue,locationvalue,datevalue;
 	private Button post,browse;
 	private static final int PICK_IMAGE = 1; 
-	private Bitmap bitmap;
+	private Bitmap bitmap; 
 	private RelativeLayout rel;  
 	private String filename; 
 	private int editlength=400;
@@ -249,7 +249,11 @@ public class PostNewsFragment extends Fragment implements OnClickListener{
 				String picturePath = cursor.getString(columnIndex);
 				filename = selectedImage.getLastPathSegment().toString();
 				cursor.close();
-				decodeFile(picturePath);
+				try{
+					decodeFile(picturePath);}
+				catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 
 		}

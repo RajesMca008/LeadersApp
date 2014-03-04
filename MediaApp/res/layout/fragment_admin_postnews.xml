@@ -43,7 +43,8 @@
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:hint="@string/date"
-                android:inputType="number"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:singleLine="true"
                 android:textColor="@color/black" />
 
@@ -65,6 +66,8 @@
                 android:layout_marginTop="12dp"
                 android:hint="@string/image"
                 android:singleLine="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:textColor="@color/black" />
 
             <Button

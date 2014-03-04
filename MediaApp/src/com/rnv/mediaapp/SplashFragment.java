@@ -78,7 +78,6 @@ public class SplashFragment extends Fragment{
 						intent.setClass(mContext, DashBoardActivity.class);
 						startActivity(intent);
 					}
-		           
 				} 
 				else{ 
 					 intent = new Intent();

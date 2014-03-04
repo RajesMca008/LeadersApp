@@ -48,7 +48,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 
 	private static final String TAG = "PostGalleryFragment";
 	private View mView;
-	private PostGalleryActivity mContext;  
+	private PostGalleryActivity mContext;   
 	private EditText titleedt,descriptionedt,locationedt,dateedt;
 	private ImageButton dobimg;
 
@@ -64,7 +64,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 	private boolean browseflag1=false;
 	int MyYear,MyMonth,MyDay,MyHour,MyMinute;
 	private LinearLayout addmorelayout=null;
-	private String filename;
+	private String filename; 
 	private TextView textOut;
 	private ArrayList<String> base64forimages=new ArrayList<String>();
 	@Override  
@@ -84,7 +84,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 		dobimg=(ImageButton) mContext.findViewById(R.id.dobimage);
 		addmorelayout=(LinearLayout) mContext.findViewById(R.id.addmorelinear);
 		post=(Button) mContext.findViewById(R.id.submit);
-		browse1=(ImageButton) mContext.findViewById(R.id.browseimg1);
+ 		browse1=(ImageButton) mContext.findViewById(R.id.browseimg1);
 		//browse2=(Button) mContext.findViewById(R.id.browseimg2);
 		//	imagetext2=(EditText) mContext.findViewById(R.id.Textimg2);
 		imagetext1=(EditText) mContext.findViewById(R.id.Textimg1);
@@ -202,7 +202,6 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 		default: 
 			break;
 		}
-
 	}
 
 	private void selectImageFromGallery() {
@@ -274,7 +273,7 @@ public class PostGalleryFragment extends Fragment implements OnClickListener{
 			paramdetails.add(new BasicNameValuePair("count",""+base64forimages.size()));
 			for(int j=0;j<base64forimages.size();j++)
 			{
-			paramdetails.add(new BasicNameValuePair("Iimage"+j,base64forimages.get(j)));
+			paramdetails.add(new BasicNameValuePair("Iimage"+j+1,base64forimages.get(j)));
 
 			}}
 			//paramdetails.add(new BasicNameValuePair("Iimage1",image1_base64));
